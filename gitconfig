@@ -3,4 +3,12 @@
 	name = Raymond Barbiero
 [color]
 	status = auto
-	branch = auto
+  branch = auto
+[alias]
+  ci=commit
+  st=status
+  co=checkout
+  com=checkout master
+  cam=commit -a -m
+  cm=commit -m
+  br=branch
