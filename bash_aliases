@@ -29,3 +29,5 @@ alias sgconf="cat ~/.gitconfig"
 if [[ ${platform} == 'darwin' ]]; then
   alias wget="curl -O"
 fi
+
+alias lls="ls -alh"
