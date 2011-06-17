@@ -1,3 +1,13 @@
+platform='unknown'
+unamestr=$(uname)
+if [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+  platform='freebsd'
+elif [[ "${unamestr}" == 'Darwin' ]]; then
+  platform='darwin'
+fi
+
 alias g='git'
 alias gd='git diff --stat --color'
 alias ga="git add \$1"
@@ -15,3 +25,7 @@ alias gusvn="git svn rebase"
 alias gpsvn="git svn dcommit"
 alias salias="cat ~/.bash_aliases"
 alias sgconf="cat ~/.gitconfig"
+
+if [[ ${platform} == 'darwin' ]]; then
+  alias wget="curl -O"
+fi
