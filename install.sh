@@ -15,7 +15,14 @@ function softlink() {
   ln -s $SOURCE $DEST
 }
 
+read -p "Enter your email address: " EMAIL
 softlink "$DIR/bash_aliases" "$(fullpath ~/.bash_aliases)"
-softlink "$DIR/gitconfig" "$(fullpath ~/.gitconfig)"
 softlink "$DIR/vim" "$(fullpath ~/.vim)"
 softlink "$DIR/vim/vimrc" "$(fullpath ~/.vimrc)"
+
+GITCONFIG=$(fullpath ~/.gitconfig)
+if [ -e "$GITCONFIG" ] ; then
+  rm -rf $GITCONFIG
+fi
+cat $DIR/gitconfig | sed "s^@EMAIL@^$EMAIL^g" > $GITCONFIG
+
